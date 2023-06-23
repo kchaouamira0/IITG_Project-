@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>ADMIN IITG {% block title %}{% endblock %}</title> 
+        {% include '_BASE_ADMIN/head.html.twig' %}
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+
+        <!--*******************
+            Preloader start
+        ********************-->
+
+        {% include '_BASE_ADMIN/Preloader.html.twig' %}
+
+        <!--*******************
+            Preloader end
+        ********************-->
+
+        <!--**********************************
+            Main wrapper start
+        ***********************************-->
+
+        <div id="main-wrapper">
+
+            <!--**********************************
+                Nav header start
+            ***********************************-->
+            {% include '_BASE_ADMIN/NavHeader.html.twig' %}
+
+            <!--**********************************
+                Nav header end
+            ***********************************-->
+
+
+            <!--**********************************
+                Header start
+            ***********************************-->
+            {% include '_BASE_ADMIN/Header.html.twig' %}
+            <!--**********************************
+                Header end ti-comment-alt
+            ***********************************-->
+
+            <!--**********************************
+                Sidebar start
+            ***********************************-->
+            {% include '_BASE_ADMIN/Sidebar.html.twig' %}
+            <!--**********************************
+                Sidebar end
+            ***********************************-->
+
+            <!--**********************************
+                Content body start
+            ***********************************-->
+            <div class="content-body">
+                <!-- row -->
+                <div class="container-fluid">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+            <!--**********************************
+                Content body end
+            ***********************************-->
+
+
+            <!--**********************************
+                Footer start
+            ***********************************-->
+            {% include '_BASE_ADMIN/Footer.html.twig' %}
+            <!--**********************************
+                Footer end
+            ***********************************-->
+
+            <!--**********************************
+                Support ticket button start
+            ***********************************-->
+
+            <!--**********************************
+               Support ticket button end
+            ***********************************-->
+
+
+        </div>
+        <!--**********************************
+            Main wrapper end
+        ***********************************-->
+
+        <!--**********************************
+            Scripts
+        ***********************************-->
+        {% include '_BASE_ADMIN/Scripts.html.twig' %}
+
+
+    </body>
+</html>

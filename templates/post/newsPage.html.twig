@@ -1,0 +1,57 @@
+{% extends 'base_iitg_layout.html.twig' %}
+{% block title %}| {% trans %}News{% endtrans %} | {{ post.title }} {% endblock %}
+
+
+{% block body %}
+
+    <section class="breadcrumb_area">
+        <div class="breadcrumb_top">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_title section-padding">
+                        <h2></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_nav">
+                        <div class="col-sm-5">
+                            <h2>{% trans %}News{% endtrans %}</h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <ul>
+                                <li><a href="index.html">{% trans %}Home{% endtrans %}</a></li>
+                                <li>{% trans %}News{% endtrans %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section_page_iitg_area section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="section_page_iitg_txt">
+                        <h1 class="text-center">{% if app.request.locale == 'en' %}{{ post.title }}{% elseif app.request.locale == 'fr' %}{{ post.titleFr }}{% endif %}</h1>
+
+                        {% if app.request.locale == 'en' %}{{ post.content|raw }}{% elseif app.request.locale == 'fr' %}{{ post.contentFr|raw }}{% endif %}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

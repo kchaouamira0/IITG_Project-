@@ -1,0 +1,31 @@
+{# NEWS #}
+<section class="latest_courses_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section_heading">
+                    <h1>{% trans %}News{% endtrans %}</h1>
+                    <p>{% trans %}Our news{% endtrans %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="all_latest_course">
+                {% for post in posts %}
+                <div class="single_latest_courses">
+                    <div class="sing_lat_course_photo">
+                        <img src="{{ asset(post.imagePoster)}}" alt="">
+                    </div>
+                    <div class="sing_lat_course_txt">
+                        <a href="{{ path('app_iitg_news_by_slug',{'slug':post.slug}) }}"><h3>{{ post.title }}</h3></a>
+                        <p>{{ post.description }}</p>
+                   
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+

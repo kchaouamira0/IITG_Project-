@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% trans %}International Institute Of Technology And Management IITG{% endtrans %}{% block title %}{% endblock %}</title>
+        {% include '_BASE_IITG/head.html.twig' %}
+        <style>
+
+            .counter-box {
+                display: block;
+                background: #f6f6f6;
+                padding: 40px 20px 37px;
+                text-align: center
+            }
+
+            .counter-box p {
+                margin: 5px 0 0;
+                padding: 0;
+                color: #909090;
+                font-size: 18px;
+                font-weight: 500
+            }
+
+            .counter-box i {
+                font-size: 60px;
+                margin: 0 0 15px;
+                color: #d2d2d2
+            }
+
+            .counter {
+                display: block;
+                font-size: 32px;
+                font-weight: 700;
+                color: #666;
+                line-height: 28px
+            }
+
+            .counter-box.colored {
+                background: #3acf87
+            }
+
+            .counter-box.colored p,
+            .counter-box.colored i,
+            .counter-box.colored .counter {
+                color: #fff
+            }
+        </style>
+    </head>
+
+    <body>
+        {% include '_BASE_IITG/preloader.html.twig' %}
+        {% include '_BASE_IITG/header.html.twig' %}
+
+
+
+        {% include '_BASE_IITG/key2seccess.html.twig' %}
+
+        {% include '_BASE_IITG/formations.html.twig' %}
+
+        {#include '_BASE_IITG/news.html.twig%#}
+        
+        {{  render(path('app_iitg_news_for_index')) }}
+
+        
+        
+        {% include '_BASE_IITG/teachers.html.twig' %}
+
+        {% include '_BASE_IITG/chiffres_cles.html.twig' %}
+
+        {% include '_BASE_IITG/partners.html.twig' %}
+
+        {# include '_BASE_IITG/sectionsExemple.html.twig' #}
+
+        {% include '_BASE_IITG/footer.html.twig' %}
+        {% include '_BASE_IITG/scripts.html.twig' %}
+
+        <script type='text/javascript'>
+            $(document).ready(function () {
+
+                $('.counter').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).text()
+                    }, {
+                        duration: 2000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(Math.ceil(now));
+                        }
+                    });
+                });
+
+            });
+            
+            
+        </script>
+    </body>
+</html>

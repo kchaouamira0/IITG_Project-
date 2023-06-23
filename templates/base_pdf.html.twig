@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            body {
+                font-family: 'Poor Richard', sans-serif;
+            }
+
+            .section {
+
+                padding: 10px;
+                text-align: justify;
+
+                height: 500px; /* Hauteur de l'en-tête */
+
+
+                position: relative;
+
+
+            }
+
+            .section::before {
+                background-image: url('{{ absolute_url(asset('assets/iitg/img/exp/logo.png')) }}');
+
+                background-size: cover;
+                background-repeat: no-repeat;
+
+
+                position: absolute;
+
+
+
+                content: "";
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 700px;
+                z-index: -5;
+                opacity: 0.1;
+
+            }
+            .texte{
+                position: absolute;
+
+            }
+
+
+            #header {
+                position: running(header); /* Définition de l'en-tête comme un élément nommé "header" */
+                height: 100px; /* Hauteur de l'en-tête */
+                width: auto;
+            }
+
+            .left {
+                float: left; /* Alignement à gauche */
+                margin-bottom: 5px;
+
+            }
+
+            .right {
+                float: right; /* Alignement à droite */
+                text-align: right;
+                margin-top: -15px;
+
+            }
+
+            .clear {
+                clear: both; /* Effacement des flottants */
+            }
+
+            .left h1 {
+                font-size: 15px; /* Taille de police du titre */
+            }
+            .left p {
+                font-size: 16px; /* Taille de police du titre */
+            }
+
+            .right img {
+                width: 190px; /* Largeur de l'image de l'en-tête */
+                height: auto; /* Hauteur automatique pour conserver les proportions */
+
+            }
+
+            .title{
+                text-align: center;
+                margin-bottom: 20px;
+                margin-top: 80px;
+            }
+            p{
+                font-size: 20px; /* Taille de police du titre */
+                margin-top: 5px;
+
+            }
+            .title2{
+                font-size: 25px; /* Taille de police du titre */
+                margin-bottom: 8px;
+                margin-top: 10px;
+            }
+            .footer {
+                position: fixed; /* Position fixe pour le pied de page */
+                bottom: 0; /* Alignement en bas de la page */
+                right: 0; /* Alignement à droite */
+                width: 500px; /* Largeur du pied de page */
+                padding: 10px; /* Espacement interne pour le contenu du pied de page */
+                text-align: right; /* Alignement du texte à droite */
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div class="left">
+                <h1 style="width: 320px;text-align: center">REPUBLIQUE GABONAISE</h1>
+                <p style="width: 320px;text-align: center">Ministère de l’Enseignement Supérieur de la Recherche Scientifique, du Transfert de Technologies de la Culture et des Arts</p>
+            </div>
+            <div class="right">
+                <img src="{{ absolute_url(asset('assets/iitg/img/exp/logo.png')) }}" alt="Logo" />
+            </div>
+        </div>
+        <div class="title">
+            <h2>ATTESTATION DE PRE D’INSCRIPTION</h2>
+            <p>2022-2023</p>
+        </div>
+        <div class="section">
+            <div class="texte">
+                <p>Je soussigné de l’Institut International de Technologie et de Gestion, soussigné, certifie que l’étudiant (e) :</p>
+                <center> <p class="title2"><strong>{{ preInscription.firstName|capitalize ~' '~ preInscription.lastName|upper }}</strong></p></center>
+                <center> <p  class="title2" >Né le {{ preInscription.birthdate|date("m/d/Y") }}</p></center>
+                <center> <p  class="title2">De nationalité Gabonaise</p></center><br/>
+                <p>Est inscrit(e) en <u>PREMIERE ANNEE</u> <strong>{{ preInscription.speciality.name|upper }}</strong>, pour le compte de l’année 2023-2024.</p>
+                <p class="info">La présente attestation est délivrée à l’interessée, pour servir et valoir ce que de droit.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p> Fait à Libreville, le {{ "now"|date("d F Y") }}</p>
+            <p>Le directeur Habib HAMAM</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}New TypePost{% endblock %}
+
+{% block body %}
+    <h1>Create new TypePost</h1>
+
+    {{ include('iitg_admin/type_post/_form.html.twig') }}
+
+    <a href="{{ path('app_iitg_admin_type_post_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> {% trans %}International Institute Of Technology And Management IITG{% endtrans %} {% block title %}{% endblock %}</title>
+        {% include '_BASE_IITG/head.html.twig' %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+
+    <body>
+        {% include '_BASE_IITG/preloader.html.twig' %}
+        {% include '_BASE_IITG/header.html.twig' %}
+
+
+        {% block body %}{% endblock %}
+
+
+        {% include '_BASE_IITG/footer.html.twig' %}
+        {% include '_BASE_IITG/scripts.html.twig' %}
+        {% block scripts %}{% endblock %}
+
+
+    </body>
+</html>

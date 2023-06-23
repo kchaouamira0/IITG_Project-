@@ -1,0 +1,114 @@
+                  
+<footer class="footer_area">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="newslatter">
+                        <form action="index.html">
+                            <input type="email" placeholder="Email Address">
+                            <input type="submit" value="">
+                        </form>
+                        <p>{% trans %}To Recieve Our Updates Via E-mail{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer_widgets">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single_footer_widget">
+                           <h2 class="widget_title">{% trans %}About us{% endtrans %}</h2>
+                            <p>
+                                {% trans %} The International Institute of Technology and Management (IITG) is a private institution of Higher Education.  Founded in September 2022 by two partners, the institute is aligned with the guidelines of sub-regional university institutions, as well as national and international standards relating to Higher Education.{% endtrans %} 
+                            </p>
+                            <ul class="footer_social">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h2 class="widget_title">{% trans %}LAST ARTICLES{% endtrans %}</h2>
+                            <ul class="latest_post">
+                                <li>
+                                    <img src="{{ asset('assets/iitg/') }}img/latest_post_1.jpg" alt="">
+                                    <div class="latest_post_txt">
+                                        <h4><a href="#">On your mark get set and go now</a></h4>
+                                        <p>April 12, 2015</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="{{ asset('assets/iitg/') }}img/latest_post_2.jpg" alt="">
+                                    <div class="latest_post_txt">
+                                        <h4><a href="#">The ship set ground on the shore of this</a></h4>
+                                        <p>April 12, 2015</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="{{ asset('assets/iitg/') }}img/latest_post_3.jpg" alt="">
+                                    <div class="latest_post_txt">
+                                        <h4><a href="#">This time there's no stopping us from away</a></h4>
+                                        <p>April 12, 2015</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h2 class="widget_title">{% trans %}LATEST TWEETS{% endtrans %}</h2>
+                            <ul class="latest_tweet">
+                                <li>Educamus is one of the excellent university template 
+                                    <a href="#">http://educampus/universitybest/</a>
+                                    <span>1 hours ago</span>
+                                </li>
+                                <li>Educamus is one of the excellent university template 
+                                    <a href="#">http://educampus/universitybest/</a>
+                                    <span>1 hours ago</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h2 class="widget_title">{% trans %}Contact Us{% endtrans %}</h2>
+                            <ul class="footer_contact">
+                                <li>{% trans %}Bp : 1989 Libreville-Gabon, Commune of Akanda (50 M from okala police station){% endtrans %}</li>
+                                <li>+241 74 35 29 29</li>
+                                <li>+241 74 07 07 19</li>
+                                <li>Institut.technologie2022@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>© 2023 IITG. All rights reserved | Created by <a href="mailto:ahmed.saidani2014@yahoo.com"><span>AH-SD</span></a></p>
+                </div>
+                <div class="col-sm-8">
+                    <nav class="footer_menu">
+                        <ul>
+                      							
+							<li><a href="{{ path('app_iitg') }}">{% trans %}Home{% endtrans %}</a></li>
+                            <li><a href="#">{% trans %}Who are we?{% endtrans %}</a></li>
+                            <li><a href="#">{% trans %}Missions{% endtrans %}</a></li>
+                            <li><a href="#">{% trans %}Admission{% endtrans %}</a></li>
+                            <li><a href="#">{% trans %}Academic cooperation{% endtrans %}</a></li>
+                            <li><a href="#">{% trans %}Contact Us{% endtrans %}</a></li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_iitg_admin_filiere_by_parcours_delete', {'id': filiere_by_parcour.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ filiere_by_parcour.id) }}">
+    <button class="btn">Delete</button>
+</form>

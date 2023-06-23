@@ -1,0 +1,115 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}Pre Inscription{% endblock %}
+
+{% block body %}
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4>{{ pre_inscription.firstName|capitalize }} {{ pre_inscription.lastName|upper }}</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0);">Pre Inscription</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row tab-content">
+                <div id="list-view" class="tab-pane fade active show col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{ pre_inscription.speciality.filiereByParcours }}</h4>
+                            {% if pre_inscription.isAccepted  %}
+                                <div class="alert alert-success solid">Accepted</div>
+                                 <a href="{{ path('app_iitg_admin_pre_inscription_exemple_attestation_methode_1',{'id':pre_inscription.id}) }}" class="btn btn-primary">Attestation Mèthode 1</a>
+                                 <a href="{{ path('app_iitg_admin_pre_inscription_exemple_attestation_methode_2',{'id':pre_inscription.id}) }}" class="btn btn-primary">Attestation Mèthode 2</a>
+
+                            {% else %}
+                                <a href="{{ path('app_iitg_admin_pre_inscription_accept',{'id':pre_inscription.id}) }}" class="btn btn-primary">Accept</a>
+                            {% endif %}
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">     
+
+                                <table class="table table-bordered table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>Id</th>
+                                            <td>{{ pre_inscription.id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>AnneeUniv</th>
+                                            <td>{{ pre_inscription.anneeUniv }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>FirstName</th>
+                                            <td>{{ pre_inscription.firstName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LastName</th>
+                                            <td>{{ pre_inscription.lastName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Birthdate</th>
+                                            <td>{{ pre_inscription.birthdate ? pre_inscription.birthdate|date('Y-m-d') : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>PlaceOfBirth</th>
+                                            <td>{{ pre_inscription.placeOfBirth }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>{{ pre_inscription.email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Adress</th>
+                                            <td>{{ pre_inscription.adress }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Phone</th>
+                                            <td>{{ pre_inscription.phone }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Etab</th>
+                                            <td>{{ pre_inscription.etab }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Bac</th>
+                                            <td>{{ pre_inscription.bac }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sector</th>
+                                            <td>{{ pre_inscription.speciality.filiereByParcours }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>IsAccepted</th>
+                                            <td>{{ pre_inscription.isAccepted ? 'Yes' : 'No' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>CreatedAt</th>
+                                            <td>{{ pre_inscription.createdAt ? pre_inscription.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <a href="{{ path('app_iitg_admin_pre_inscription_index') }}" class="nav-link btn-primary mr-1 show active text-center">back to list</a>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

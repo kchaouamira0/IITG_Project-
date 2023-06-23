@@ -1,0 +1,3 @@
+# elfinder
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yaml"

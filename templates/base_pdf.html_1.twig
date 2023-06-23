@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Completion Certification</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .certificate {
+      width: 100%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .certificate h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .certificate p {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .certificate .name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .certificate .completion-date {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .certificate .signature {
+      text-align: right;
+      margin-top: 50px;
+    }
+
+    .certificate .signature img {
+      max-width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="certificate">
+    {% block body %}
+
+    {% endblock %}
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

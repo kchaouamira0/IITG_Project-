@@ -1,0 +1,40 @@
+
+/* --------------------------------------------------------
+SECTION PAGE IITG CSS
+-----------------------------------------------------------*/
+.section_page_iitg_area{
+    background: #f8f8f8;
+}
+
+.section_page_iitg_txt h1{
+    font-size: 32px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    margin: 20px 0 25px;
+}
+.section_page_iitg_txt p{
+    line-height: 29px;
+    font-size: 18px;
+}
+.section_page_iitg_txt ul{
+    list-style: initial;
+    line-height: 29px;
+    font-size: 18px;
+    color: #777777;
+    padding-left: 40px;
+}
+.single_section_page_iitg{
+    text-align: center;
+    padding-top: 30px;
+}
+.single_section_page_iitg_icon{
+    background: #ff3d00;
+    border-radius: 50%;
+    line-height: 75px;
+    width: 75px;
+    margin: 0 auto;
+}
+.single_section_page_iitg h3{
+    font-size: 18px;
+    margin-top: 15px;
+}

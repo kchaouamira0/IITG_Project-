@@ -1,0 +1,30 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}TypePost{% endblock %}
+
+{% block body %}
+    <h1>TypePost</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_post.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ type_post.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ type_post.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_iitg_admin_type_post_index') }}">back to list</a>
+
+    <a href="{{ path('app_iitg_admin_type_post_edit', {'id': type_post.id}) }}">edit</a>
+
+    {{ include('iitg_admin/type_post/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,186 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}| {% if edit is defined and edit == true %}Edit{% else %}Add{% endif %} Post{% endblock %}
+
+{% block body %}
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4>{% if edit is defined and edit == true %}Edit{% else %}Add{% endif %} Post</h4>
+            </div>
+        </div>
+    </div>
+    {{ form_start(form) }}
+
+    <!-- Langue Français -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> En Français</h4>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Titre
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">                                            
+                                    {{ form_widget(form.titleFr) }}
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Description
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    {{ form_widget(form.descriptionFr) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Contenu
+                                    <span class="text-danger">*</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-12 col-form-label">
+                                    {{ form_widget(form.contentFr) }}
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Langue Anglaise -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> In English</h4>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Title
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">                                            
+                                    {{ form_widget(form.title) }}
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Description
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    {{ form_widget(form.description) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Content
+                                    <span class="text-danger">*</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-12 col-form-label">
+                                    {{ form_widget(form.content) }}
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Autres -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Type Post
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">                                            
+                                    {{ form_widget(form.typePost) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">Image Poster
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">                                            
+                                    {{ form_widget(form.imagePoster) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Butons -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-12 text-center">
+                            <button class="btn btn btn-primary">
+                                {% if edit is defined and edit == true %}
+                                    {{ button_label|default('Update') }}
+                                {% else %}
+                                    {{ button_label|default('Save') }}
+                                {% endif %}
+                                
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

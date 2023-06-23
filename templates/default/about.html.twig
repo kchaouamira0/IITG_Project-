@@ -1,0 +1,98 @@
+{% extends 'base_iitg_layout.html.twig' %}
+{% block title %}| À propos de nous{% endblock %}
+
+
+{% block body %}
+    <section class="breadcrumb_area">
+        <div class="breadcrumb_top">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_title section-padding">
+                        <h2>About us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_nav">
+                        <div class="col-sm-5">
+                            <h2>About Us</h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li>About Us</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="our_degrees_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 section-padding od_bg1">
+                    <div class="our_degrees_txt">
+                        <h2>Bienvenue à L’Institut International de Technologie et de Gestion IITG</h2>
+                        <p>L’Institut International de Technologie et de Gestion, en abrégé IITG est un établissement privé d’Enseignement Supérieur.</p>
+						<p>
+						Fondé en septembre 2022 par des partenaires Gabonais et étrangers, l’institut s’arrime aux Directives des institutions sous régionales universitaires, ainsi qu’aux normes nationales et internationales relatives à l’Enseignement Supérieur.Il comprend un conseil de direction et un conseil académique issues de sa gouvernance académique.
+						</p>
+							
+                    
+                    </div>
+                </div>
+                <div class="col-md-6 section-padding od_bg2">
+                    <div class="our_degrees_item">
+                        <div class="single_our_degree">
+                            <div class="col-sm-3">
+                                <div class="sing_degree_icon">
+                                    <img src="{{ asset('assets/iitg/') }}img/icon_our_degree_1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 fix_p">
+                                <div class="sing_degree_txt">
+                                    <h2>LICENCES</h2>
+                                    <p>La Licence Professionnelle est délivrée aux étudiants 3 ans après l’obtention du Baccalauréat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_our_degree">
+                            <div class="col-sm-3">
+                                <div class="sing_degree_icon">
+                                    <img src="{{ asset('assets/iitg/') }}img/icon_our_degree_2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 fix_p">
+                                <div class="sing_degree_txt">
+                                    <h2>MASTERS PROFESSIONNELS</h2>
+                                    <p>IITG délivre le diplôme national en Master Professionnel afin de rendre opérationnels les étudiants après l’obtention de leur Licence.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_our_degree">
+                            <div class="col-sm-3">
+                                <div class="sing_degree_icon">
+                                    <img src="{{ asset('assets/iitg/') }}img/icon_our_degree_3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 fix_p">
+                                <div class="sing_degree_txt">
+                                    <h2>INGENIERIE</h2>
+                                    <p>
+                                       Les domaines d’ingénierie à IITG sont Genie Informatique, Génie des Télécommunication, Intélligence Artificielle.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+
+            .section {
+                background-image: url('{{ absolute_url(asset('assets/iitg/img/exp/logo.png')) }}');
+                background-color: rgba(0, 0, 0, 0.5); /* Couleur d'arrière-plan avec opacité */
+                background-blend-mode: overlay; /* Mode de fusion pour l'image et la couleur */
+
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 10px;
+                text-align: justify;
+
+                height: 500px; /* Hauteur de l'en-tête */
+
+
+                position: relative;
+
+
+            }
+            .texte{
+                position: absolute;
+
+            }
+
+
+            #header {
+                position: running(header); /* Définition de l'en-tête comme un élément nommé "header" */
+                height: 100px; /* Hauteur de l'en-tête */
+            }
+
+            .left {
+                float: left; /* Alignement à gauche */
+                margin-bottom: 5px;
+
+            }
+
+            .right {
+                float: right; /* Alignement à droite */
+                text-align: right;
+
+            }
+
+            .clear {
+                clear: both; /* Effacement des flottants */
+            }
+
+            .left h1 {
+                font-size: 17px; /* Taille de police du titre */
+            }
+            .left h2 {
+                font-size: 14px; /* Taille de police du titre */
+            }
+
+            .right img {
+                width: 170px; /* Largeur de l'image de l'en-tête */
+                height: auto; /* Hauteur automatique pour conserver les proportions */
+
+            }
+
+            .title{
+                text-align: center;
+                margin-bottom: 20px;
+                margin-top: 80px;
+            }
+            p{
+                font-size: 23px; /* Taille de police du titre */
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+            .title2{
+                font-size: 25px; /* Taille de police du titre */
+                margin-bottom: 8px;
+                margin-top: 10px;
+            }
+            .footer {
+                position: fixed; /* Position fixe pour le pied de page */
+                bottom: 0; /* Alignement en bas de la page */
+                right: 0; /* Alignement à droite */
+                width: 500px; /* Largeur du pied de page */
+                padding: 10px; /* Espacement interne pour le contenu du pied de page */
+                text-align: right; /* Alignement du texte à droite */
+            }
+            h1, h2, h3, h4, h5, h6, p {
+                font-family: "Times New Roman", Times, serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div class="left">
+                <h1 style="width: 320px;text-align: center">REPUBLIQUE GABONAISE</h1>
+                 <h2 style="width: 320px;text-align: center">Ministère de l’Enseignement Supérieur de la Recherche Scientifique, du Transfert de Technologies de la Culture et des Arts</h2>
+            </div>
+            <div class="right">
+                <img src="{{ absolute_url(asset('assets/iitg/img/exp/logo.png')) }}" alt="Logo" />
+            </div>
+        </div>
+        <div class="title">
+            <h3>ATTESTATION DE PRE D’INSCRIPTION</h3>
+            <p>2022-2023</p>
+        </div>
+        <div class="section">
+            <div class="texte">
+                <p>Je soussigné de l’Institut International de Technologie et de Gestion, soussigné, certifie que l’étudiant (e) :</p>
+                <center> <p class="title2"><strong>MOUSSAVOU Etienne</strong></p></center>
+                <center> <p  class="title2" >Né le 06/10/2004</p></center>
+                <center> <p  class="title2">De nationalité Gabonaise</p></center>
+                <p>Est inscrit (e) en PREMIERE ANNEE COMPTABILITE, pour le compte de l’année 2023-2024.</p>
+                <p class="info">La présente attestation est délivrée à l’interessée, pour servir et valoir ce que de droit.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p> Fait à Libreville, le 05 décembre 2022</p>
+            <p>Le directeur Habib HAMAM</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}Edit PreInscription{% endblock %}
+
+{% block body %}
+    <h1>Edit PreInscription</h1>
+
+    {{ include('iitg_admin/pre_inscription/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_iitg_admin_pre_inscription_index') }}">back to list</a>
+
+    {{ include('iitg_admin/pre_inscription/_delete_form.html.twig') }}
+{% endblock %}

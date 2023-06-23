@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="lniBt5v" resname="International Institute Of Technology And Management IITG">
+        <source>International Institute Of Technology And Management IITG</source>
+        <target>Institut International de Technologie et de Gestion IITG</target>
+      </trans-unit>
+      <trans-unit id="aXUvIxO" resname="News">
+        <source>News</source>
+        <target>Actualités</target>
+      </trans-unit>
+      <trans-unit id="kpympCf" resname="Our news">
+        <source>Our news</source>
+        <target>Nos nouvelles</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="Df13WaU" resname="Key Figures">
+        <source>Key Figures</source>
+        <target>Chiffres Clés</target>
+      </trans-unit>
+      <trans-unit id="3iQTkRI" resname="IITG Key Figures">
+        <source>IITG Key Figures</source>
+        <target>Chiffres Clés de l'IITG</target>
+      </trans-unit>
+      <trans-unit id="kW6jbhk" resname="Graduates">
+        <source>Graduates</source>
+        <target>Diplômés</target>
+      </trans-unit>
+      <trans-unit id="M8USxu7" resname="Teachers">
+        <source>Teachers</source>
+        <target>Enseignants</target>
+      </trans-unit>
+      <trans-unit id="X5SUxNI" resname="Departments">
+        <source>Departments</source>
+        <target>Départements</target>
+      </trans-unit>
+      <trans-unit id="SMZwaJ6" resname="Prof insertion">
+        <source>Prof insertion</source>
+        <target>Insertion prof</target>
+      </trans-unit>
+      <trans-unit id="jMh0Lg6" resname="To Recieve Our Updates Via E-mail">
+        <source>To Recieve Our Updates Via E-mail</source>
+        <target>Pour recevoir nos mises à jour par E-mail</target>
+      </trans-unit>
+      <trans-unit id="tLWAqa2" resname="About us">
+        <source>About us</source>
+        <target>À propos de nous</target>
+      </trans-unit>
+      <trans-unit id="ltoZ5u_" resname="The International Institute of Technology and Management (IITG) is a private institution of Higher Education.  Founded in September 2022 by two partners, the institute is aligned with the guidelines of sub-regional university institutions, as well as national and international standards relating to Higher Education.">
+        <source>The International Institute of Technology and Management (IITG) is a private institution of Higher Education.  Founded in September 2022 by two partners, the institute is aligned with the guidelines of sub-regional university institutions, as well as national and international standards relating to Higher Education.</source>
+        <target>L'IITG est un établissement privé d’Enseignement Supérieur. Fondé en septembre 2022 par des partenaires Gabonais et étrangers, l’institut s’arrime aux Directives des institutions sous régionales universitaires, ainsi qu’aux normes nationales et internationales relatives à l’Enseignement Supérieur.Il comprend un conseil de direction et un conseil académique issues de sa gouvernance académique.</target>
+      </trans-unit>
+      <trans-unit id="5GMCMkY" resname="LAST ARTICLES">
+        <source>LAST ARTICLES</source>
+        <target>DERNIERS ARTICLES</target>
+      </trans-unit>
+      <trans-unit id="481Bi.D" resname="LATEST TWEETS">
+        <source>LATEST TWEETS</source>
+        <target>DERNIERS TWEETS</target>
+      </trans-unit>
+      <trans-unit id="mLZwY8_" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>Contactez-nous</target>
+      </trans-unit>
+      <trans-unit id="cfnY28v" resname="Bp : 1989 Libreville-Gabon, Commune of Akanda (50 M from okala police station)">
+        <source>Bp : 1989 Libreville-Gabon, Commune of Akanda (50 M from okala police station)</source>
+        <target>Commune d’Akanda, 100 m du Commissariat d’OKALA (Pizzeria le MAYON)</target>
+      </trans-unit>
+      <trans-unit id="BPtACwx" resname="Who are we?">
+        <source>Who are we?</source>
+        <target>À propos</target>
+      </trans-unit>
+      <trans-unit id="k._4zpj" resname="Missions">
+        <source>Missions</source>
+        <target>Nos missions</target>
+      </trans-unit>
+      <trans-unit id="SAcwMzO" resname="Admission">
+        <source>Admission</source>
+        <target>Admissions</target>
+      </trans-unit>
+      <trans-unit id="fpM_gNP" resname="Academic cooperation">
+        <source>Academic cooperation</source>
+        <target>Coopération Académique</target>
+      </trans-unit>
+      <trans-unit id="Z6zxlgr" resname="International Institute of Technology and Management">
+        <source>International Institute of Technology and Management</source>
+        <target>Institut International de Technologie et de Gestion</target>
+      </trans-unit>
+      <trans-unit id="aMIhMkK" resname="IITG is committed to developing in learners educational and professional ethics, critical thinking, analytical and problem-solving skills, creativity, innovation and leadership.">
+        <source>IITG is committed to developing in learners educational and professional ethics, critical thinking, analytical and problem-solving skills, creativity, innovation and leadership.</source>
+        <target>IITG se donne pour mission principale de contribuer au développement d’une société tournée essentiellement vers la Compétence et la Connaissance. Ainsi, les formations professionnelles et innovantes qu’il proposées visent à rendre les apprenants compétitifs, dans un univers de plus en plus globalisant</target>
+      </trans-unit>
+      <trans-unit id="FEV5nAM" resname="Learn more">
+        <source>Learn more</source>
+        <target>En savoir plus</target>
+      </trans-unit>
+      <trans-unit id="Z6XQDs4" resname="apply now">
+        <source>apply now</source>
+        <target>postulez maintenant</target>
+      </trans-unit>
+      <trans-unit id="XatQK.u" resname="Partners">
+        <source>Partners</source>
+        <target>Partenaires</target>
+      </trans-unit>
+      <trans-unit id="UtbJQdo" resname="Partners/Collaborators">
+        <source>Partners/Collaborators</source>
+        <target>Nos Partenaires</target>
+      </trans-unit>
+      <trans-unit id="CjNSrDu" resname="Directions and services">
+        <source>Directions and services</source>
+        <target>Directions et services</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

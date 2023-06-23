@@ -1,0 +1,50 @@
+
+<header class="header_area">
+    <div class="container" style="width: 90%;">
+        <div class="header_content">
+            <div class="row">
+                <div class="col-md-2 col-sm-2">
+                    <div class="logo">
+                        <a href="{{ path('app_iitg') }}"><img src="{{ asset('assets/iitg/') }}img/logo.png" width="90" height="70"></a>
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>                             
+                    </div>
+                </div>                                    
+                <div class="col-md-10 col-sm-10 nav_area">
+                    <nav class="main_menu">
+                        <div class="navbar-collapse collapse"> 
+                            <ul class="nav navbar-nav navbar-right">
+                                <li {% if app.request.attributes.get('_route') == 'app_iitg' %}class="current_page_item"{%endif%}><a href="{{ path('app_iitg') }}">{% trans %}Home{% endtrans %}</a></li>
+                                <li {% if app.request.attributes.get('_route') == 'app_iitg_about' %}class="current_page_item"{%endif%}><a href="{{ path('app_iitg_about') }}">{% trans %}Who are we?{% endtrans %}</a></li>
+                                <li {% if app.request.attributes.get('_route') == 'app_iitg_missions' %}class="current_page_item"{%endif%}><a href="{{ path('app_iitg_missions') }}">{% trans %}Missions{% endtrans %}</a></li>
+                                <li {% if app.request.attributes.get('_route') == 'app_iitg_admissions' %}class="current_page_item"{%endif%}><a href="{{ path('app_iitg_admissions') }}">{% trans %}Admission{% endtrans %}</a></li>
+                                <li {% if app.request.attributes.get('_route') == 'app_iitg_Academic_Cooperation' %}class="current_page_item"{%endif%}><a href="{{ path('app_iitg_Academic_Cooperation') }}">{% trans %}Academic cooperation{% endtrans %}</a></li>
+                                <li {% if app.request.attributes.get('_route') == 'app_iitg_contact_us' %}class="current_page_item"{%endif%}><a href="{{ path('app_iitg_contact_us') }}">{% trans %}Contact Us{% endtrans %}</a></li>
+								 {% for locale in locales %}
+
+                                        <li>
+										    {% if locale != app.request.locale %}
+
+												<a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
+											
+											{% endif %}
+                                        </li>
+                                {% endfor %}
+                            </ul>                                                     
+                        </div>
+                    </nav>
+                    <form action="{{ path('app_iitg') }}" class="header_search hidden-xs">
+                        <input type="text" placeholder="Search">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

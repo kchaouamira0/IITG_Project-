@@ -1,0 +1,37 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}TypePost index{% endblock %}
+
+{% block body %}
+    <h1>TypePost index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_post in type_posts %}
+            <tr>
+                <td>{{ type_post.id }}</td>
+                <td>{{ type_post.name }}</td>
+                <td>{{ type_post.description }}</td>
+                <td>
+                    <a href="{{ path('app_iitg_admin_type_post_show', {'id': type_post.id}) }}">show</a>
+                    <a href="{{ path('app_iitg_admin_type_post_edit', {'id': type_post.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_iitg_admin_type_post_new') }}">Create new</a>
+{% endblock %}

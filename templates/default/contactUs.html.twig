@@ -1,0 +1,129 @@
+{% extends 'base_iitg_layout.html.twig' %}
+{% block title %}| Contactez-nous{% endblock %}
+
+
+{% block body %}
+
+    <section class="breadcrumb_area">
+        <div class="breadcrumb_top">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_title section-padding">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="breadcrumb_nav">
+                        <div class="col-sm-5">
+                            <h2>Contact Us</h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li>Contact Us</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map_location_area">
+        <div class="google_map">
+            <div id="map_area"></div>
+            <div class="map_caption">
+                <h2>Comment nous contacter?</h2>
+                <div class="row contact_info">
+                    <div class="col-sm-4">
+                        <ul>
+                            <li><i class="pe-7s-map-marker"></i>Commune d’Akanda</li>
+                            <li>100 m du Commissariat d’OKALA</li>
+                            <li>Gabon</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <ul>
+                            <li><i class="pe-7s-call"></i><a href="tel:+241-74-352-929">+241 74 35 29 29</a></li>
+                            <li><i class="pe-7s-print"></i><a href="tel:+241-74-070-719">+241 74 07 07 19</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <ul>
+                            <li><i class="pe-7s-mail"></i><a href="mailto:Info@university.com">Institut.technologie2022@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#"><i class="fa fa-chevron-right"></i>Get The Direction</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="send_us_email_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-6 col-sm-6 fix_p">
+                    <div class="send_email">
+                        <div class="section-padding">
+                            <h2>Send Us An Email</h2>
+                            <div class="email_form">
+                                <form action="contact.html">
+                                    <div class="col-md-6 fix_p_r">
+                                        <label>Your Name <span>*</span></label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="col-md-6 fix_p_r">
+                                        <label>Your E-Mail <span>*</span></label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="col-md-6 fix_p_r">
+                                        <label>Phone Number</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="col-md-6 fix_p_r">
+                                        <label>Subject</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="col-md-12 fix_p_r">
+                                        <label>Message</label>
+                                        <textarea name="" cols="30" rows="10"></textarea>
+                                        <input type="submit" value="Send Message"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% block scripts %}
+    <script>
+        function initialize() {
+            var mapOptions = {
+                zoom: 13,
+                scrollwheel: false,
+                center: new google.maps.LatLng(32.775067, -96.801377)
+            };
+
+            var map = new google.maps.Map(document.getElementById('map_area'),
+                    mapOptions);
+
+
+            var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                animation: google.maps.Animation.BOUNCE,
+                icon: 'img/map-marker.png',
+                map: map
+            });
+
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script> 
+{% endblock %}
