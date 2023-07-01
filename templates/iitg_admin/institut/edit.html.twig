@@ -1,0 +1,61 @@
+{% extends 'BaseAdmin.html.twig' %}
+
+{% block title %}Edit Institut{% endblock %}
+{% block stylesheets %}
+    <style>
+        .mb-3{
+            margin-bottom: initial;
+        }
+
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4>Edit Institut</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0);">Institut</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0);">Edit Institut</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row tab-content">
+                <div id="list-view" class="tab-pane fade active show col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><u>Edit Institut</u></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="basic-form">
+                                {{ include('iitg_admin/institut/_form.html.twig', {'button_label': 'Update'}) }}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/admin/') }}js/iitg/phones.js"></script>
+    <script src="{{ asset('assets/admin/') }}js/iitg/emails.js"></script>
+
+{% endblock %}

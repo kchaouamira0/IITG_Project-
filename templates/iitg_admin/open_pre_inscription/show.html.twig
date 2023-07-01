@@ -1,0 +1,38 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}OpenPreInscription{% endblock %}
+
+{% block body %}
+    <h1>OpenPreInscription</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ open_pre_inscription.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ open_pre_inscription.title }}</td>
+            </tr>
+            <tr>
+                <th>DateStart</th>
+                <td>{{ open_pre_inscription.dateStart ? open_pre_inscription.dateStart|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateEnd</th>
+                <td>{{ open_pre_inscription.dateEnd ? open_pre_inscription.dateEnd|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ open_pre_inscription.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_iitg_admin_open_pre_inscription_index') }}">back to list</a>
+
+    <a href="{{ path('app_iitg_admin_open_pre_inscription_edit', {'id': open_pre_inscription.id}) }}">edit</a>
+
+    {{ include('iitg_admin/open_pre_inscription/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Direction{% endblock %}
+
+{% block body %}
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4>Direction</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0);">Direction</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row tab-content">
+                <div id="list-view" class="tab-pane fade active show col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Direction</h4>
+                            <a href="{{ path('app_iitg_admin_direction_edit') }}" class="btn btn-primary">Edit</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>FirstName</th>
+                                            <td>{{ direction.firstName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LastName</th>
+                                            <td>{{ direction.lastName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Address</th>
+                                            <td>{{ direction.address }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Image</th>
+                                            <td><img src="{{ asset(direction.imageProfile) }}" /></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sign</th>
+                                            <td><img src="{{ asset(direction.sign) }}" width="50%" height="50%"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Phones</th>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    {% for phone in direction.phones %}
+                                                        <tr>
+                                                            <td>
+                                                                <strong>{{ phone }}</strong>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %} 
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Emails</th>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    {% for email in direction.emails %}
+                                                        <tr>
+                                                            <td>
+                                                                <strong>{{ email }}</strong>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %} 
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

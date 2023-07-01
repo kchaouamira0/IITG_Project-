@@ -66,6 +66,11 @@
                         <div class="section-padding">
                             <div class="email_form">
                                 <h2>Pré-inscription 2023-2024</h2>
+                                <h4>{{ openPreInscription.title }}</h4>
+                                <h4>{{ openPreInscription.description }}</h4>
+                                <h4>{{ openPreInscription.academicYear }}</h4>
+                                <h4>{{ openPreInscription.dateStart|date('d-m-Y') }}</h4>
+                                <h4>{{ openPreInscription.dateEnd|date('d-m-Y') }}</h4>
 
                                 {% for message in app.flashes('success') %}
                                     <div class="alert alert-success">

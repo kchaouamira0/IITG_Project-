@@ -30,3 +30,4 @@ services:
     
     App\Service\PdfGenerator:
         arguments: []
+        

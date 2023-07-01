@@ -137,7 +137,7 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-8">                                            
-                                    {{ form_widget(form.typePost) }}
+                                    {{ form_widget(form.typePost,{'attr':{'class':'form-control'}}) }}
                                 </div>
                             </div>
 
@@ -146,7 +146,7 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-8">                                            
-                                    {{ form_widget(form.imagePoster) }}
+                                    {{ form_widget(form.imagePoster,{'attr':{'class':'form-control','style': 'cursor: pointer;'}})  }}
                                 </div>
                             </div>
                         </div>

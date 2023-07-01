@@ -86,6 +86,11 @@ class PreInscription {
      */
     private $speciality;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=OpenPreInscription::class, inversedBy="preInscriptions")
+     */
+    private $openPreInscription;
+
     public function getId(): ?int {
         return $this->id;
     }
@@ -222,6 +227,18 @@ class PreInscription {
     public function setSpeciality(?Speciality $speciality): self
     {
         $this->speciality = $speciality;
+
+        return $this;
+    }
+
+    public function getOpenPreInscription(): ?OpenPreInscription
+    {
+        return $this->openPreInscription;
+    }
+
+    public function setOpenPreInscription(?OpenPreInscription $openPreInscription): self
+    {
+        $this->openPreInscription = $openPreInscription;
 
         return $this;
     }

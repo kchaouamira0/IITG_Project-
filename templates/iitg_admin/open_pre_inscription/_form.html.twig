@@ -1,0 +1,50 @@
+{{ form_start(form) }}
+
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Année Universitaire</label>
+    <div class="col-sm-10">
+        {{ form_widget(form.academicYear,{'attr':{'class':'form-control'}}) }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+        {{ form_widget(form.title) }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+        {{ form_widget(form.description) }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Date Début</label>
+    <div class="col-sm-10">
+        {{ form_widget(form.dateStart) }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Date Fin</label>
+    <div class="col-sm-10">
+        {{ form_widget(form.dateEnd) }}
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Current</label>
+    <div class="col-sm-10">
+        {{ form_widget(form.current) }}
+    </div>
+</div>
+
+
+
+<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

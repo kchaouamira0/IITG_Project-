@@ -12,8 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 // Include Dompdf required namespaces
 use Dompdf\Dompdf;
 use Dompdf\Options;
-use App\Service\PdfGenerator;
-
+use App\Entity\Direction;
+use Doctrine\ORM\EntityManagerInterface;
 /**
  * @Route("/iitg-admin/pre-inscription")
  */
@@ -141,8 +141,9 @@ class PreInscriptionController extends AbstractController {
     /**
      * @Route("/pdf/attestation-methode-1/{id}", name="app_iitg_admin_pre_inscription_exemple_attestation_methode_1", methods={"GET"})
      */
-    public function attestationMethode1(PreInscription $preInscription): Response {
+    public function attestationMethode1(PreInscription $preInscription,EntityManagerInterface $entityManager): Response {
 
+        $direction = Direction::getInstance($entityManager);
 
         // Configure Dompdf according to your needs
         $pdfOptions = new Options();
@@ -154,7 +155,7 @@ class PreInscriptionController extends AbstractController {
         $dompdf = new Dompdf($pdfOptions);
 
         // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('iitg_admin/pre_inscription/pdf.html.twig', ['preInscription' => $preInscription
+        $html = $this->renderView('iitg_admin/pre_inscription/pdf.html.twig', ['preInscription' => $preInscription,'direction'=>$direction
         ]);
 
         // Load HTML to Dompdf
@@ -176,26 +177,47 @@ class PreInscriptionController extends AbstractController {
         ]);
     }
 
-   
     /**
-     * @Route("/pdf/attestation-methode-2/{id}", name="app_iitg_admin_pre_inscription_exemple_attestation_methode_2", methods={"GET"})
+     * @Route("/pdf/all-attestations", name="app_iitg_admin_pre_inscription_all_attestations", methods={"GET"})
      */
-    public function attestationMethode2(PdfGenerator $pdfGenerator) {
-        $title = 'PDF Example';
-        $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Sed auctor lectus id mi lacinia, id eleifend tellus tempor. 
-        Nulla sit amet sapien quis turpis aliquam laoreet vitae in ex. 
-        Donec vitae felis nec lectus aliquet finibus. 
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.';
+    public function allAttestation(PreInscriptionRepository $preInscriptionRepository,EntityManagerInterface $entityManager): Response {
 
-        // Generate the PDF
-        $pdfContent = $pdfGenerator->generatePDF($title, $text);
+        $direction = Direction::getInstance($entityManager);
+        $preInscriptions = $preInscriptionRepository->findAll();
+        $html = "";
+        
+        foreach ($preInscriptions as $preInscription) {
+            // Configure Dompdf according to your needs
+            $pdfOptions = new Options();
+            $pdfOptions->setIsRemoteEnabled(true);
 
-        // Create a response with the PDF content
-        $response = new Response($pdfContent);
-        $response->headers->set('Content-Type', 'application/pdf');
+            $pdfOptions->set('defaultFont', 'Arial');
 
-        return $response;
+            // Instantiate Dompdf with our options
+            $dompdf = new Dompdf($pdfOptions);
+
+            // Retrieve the HTML generated in our twig file
+            $html =$html. $this->renderView('iitg_admin/pre_inscription/pdf.html.twig', ['preInscription' => $preInscription,'direction'=>$direction
+            ]);
+        }
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+
+        return new Response('', 200, [
+            'Content-Type' => 'application/pdf',
+        ]);
     }
 
 }

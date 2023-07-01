@@ -1,0 +1,58 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Institut index{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+
+
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4><a href="about-courses.html">{{ "INSTITUT INTERNATIONAL DE TECHNOLOGIE ET DE GESTION"|capitalize }}</a></h4>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>adress</th>
+                            <td>{{ institut.adress }}</td>
+                        </tr>
+                        <tr>
+                            <th>Emails</th>
+                            <td>
+                                <table class="table table-bordered table-striped">
+                                    {% for email in institut.emails %}
+                                        <tr>
+                                            <td>
+                                                <strong>{{ email }}</strong>
+                                            </td>
+                                        </tr>
+                                    {% endfor %} 
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Phones</th>
+                            <td>
+                                <table class="table table-bordered table-striped">
+                                    {% for phone in institut.phones %}
+                                        <tr>
+                                            <td>
+                                                <strong>{{ phone }}</strong>
+                                            </td>
+                                        </tr>
+                                    {% endfor %} 
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <a href="{{ path('app_iitg_admin_institut_edit') }}" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+{% endblock %}

@@ -21,7 +21,7 @@
             }
 
             .section::before {
-                background-image: url('{{ absolute_url(asset('assets/iitg/img/exp/logo.png')) }}');
+                background-image: url('{{ absolute_url(asset('assets/iitg/img/iitg/logo/logo.png')) }}');
 
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -119,7 +119,7 @@
                 <p style="width: 320px;text-align: center">Ministère de l’Enseignement Supérieur de la Recherche Scientifique, du Transfert de Technologies de la Culture et des Arts</p>
             </div>
             <div class="right">
-                <img src="{{ absolute_url(asset('assets/iitg/img/exp/logo.png')) }}" alt="Logo" />
+                <img src="{{ absolute_url(asset('assets/iitg/img/iitg/logo/logo.png')) }}" alt="Logo" />
             </div>
         </div>
         <div class="title">
@@ -139,7 +139,7 @@
 
         <div class="footer">
             <p> Fait à Libreville, le {{ "now"|date("d F Y") }}</p>
-            <p>Le directeur Habib HAMAM</p>
+            <p>Le directeur {{ direction.firstName|capitalize }} {{ direction.lastName|upper }}</p>
         </div>
     </body>
 </html>
