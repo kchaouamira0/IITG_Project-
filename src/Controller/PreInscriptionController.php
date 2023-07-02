@@ -27,8 +27,16 @@ class PreInscriptionController extends AbstractController {
          */
         $openPreInscription = OpenPreInscription::getInstanceOfOpenPreInscriptionCurrent($entityManager);
         if (!$openPreInscription) {
-            return $this->redirectToRoute('app_iitg', [], Response::HTTP_SEE_OTHER);
+            return $this->render('pre_inscription/closed.html.twig');
         }
+        $dateStart = $openPreInscription->getDateStart();
+        $dateEnd = $openPreInscription->getDateEnd();
+        $dateActuelle = new \DateTime();
+
+        if ($dateActuelle < $dateStart || $dateActuelle > $dateEnd) {
+            return $this->render('pre_inscription/closed.html.twig');
+        }
+
 
         $preInscription = new PreInscription();
         $form = $this->createForm(PreInscriptionType::class, $preInscription);
@@ -40,7 +48,7 @@ class PreInscriptionController extends AbstractController {
             $this->addFlash('success', 'Your message has been successfully sent');
             return $this->redirectToRoute('app_pre_inscription', [], Response::HTTP_SEE_OTHER);
         }
-        return $this->render('pre_inscription/index.html.twig', ['form' => $form->createView(),'openPreInscription'=>$openPreInscription]);
+        return $this->render('pre_inscription/index.html.twig', ['form' => $form->createView(), 'openPreInscription' => $openPreInscription]);
     }
 
 }

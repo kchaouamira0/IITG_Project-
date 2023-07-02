@@ -2,25 +2,39 @@
 {% block title %}| Pré-inscription{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
-    <style>
-        select {
-            width: 100%;
-            border: 1px solid #e5e4e4;
-            line-height: 43px;
-            height: 43px;
-            margin-bottom: 20px;
-            text-indent: 10px;
-        }
-        option {
-            width: 100%;
-            border: 1px solid #e5e4e4;
-            line-height: 43px;
-            height: 43px;
-            margin-bottom: 20px;
-            text-indent: 10px;
-        }
-    </style>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+
+
+
+
+
+        /* Set height for Select2 selection area */
+        .select2-selection {
+            height: 43px !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #444;
+            line-height: 43px;
+        }
+
+        .email_form input[type="submit"] {
+            width: 100%;
+        }
+        .email_form select {
+            width: 100%;
+            border: 1px solid #e5e4e4;
+            line-height: 43px;
+            height: 43px;
+            margin-bottom: 20px;
+            text-indent: 10px;
+        }
+
+
+
+    </style>
 
 
 {% endblock %}
@@ -65,12 +79,9 @@
                     <div class="send_email">
                         <div class="section-padding">
                             <div class="email_form">
-                                <h2>Pré-inscription 2023-2024</h2>
-                                <h4>{{ openPreInscription.title }}</h4>
-                                <h4>{{ openPreInscription.description }}</h4>
-                                <h4>{{ openPreInscription.academicYear }}</h4>
-                                <h4>{{ openPreInscription.dateStart|date('d-m-Y') }}</h4>
-                                <h4>{{ openPreInscription.dateEnd|date('d-m-Y') }}</h4>
+                                <h2>{{ openPreInscription.title }}</h2>
+                                <h4 style="text-align: center;">{{ openPreInscription.description }}</h4>
+
 
                                 {% for message in app.flashes('success') %}
                                     <div class="alert alert-success">
@@ -114,11 +125,11 @@
                                         </div>
                                         <div class="col-md-12 fix_p_r" style="margin-bottom: 20px; ">
                                             <label>Bac <span>*</span></label>
-                                            {{ form_widget(form.bac) }}
+                                            {{ form_widget(form.bac,{'attr':{'class':'form-select'}}) }}
                                         </div>
                                         <div class="col-md-12 fix_p_r" style="margin-bottom: 20px">
                                             <label>Sector <span>*</span></label>
-                                            {{ form_widget(form.speciality,{'attr':{ 'height': '600px'}}) }}
+                                            {{ form_widget(form.speciality) }}
                                         </div>
                                         <div class="col-md-12 fix_p_r">
                                             <input type="submit" value="Send Message">
@@ -149,7 +160,9 @@
             $('.js-datepicker').datepicker();
 
             //select2
-            $('.speciality-tags').select2();
+            $('.speciality-tags').select2({
+                width: 'resolve'
+            });
 
         });
     </script>

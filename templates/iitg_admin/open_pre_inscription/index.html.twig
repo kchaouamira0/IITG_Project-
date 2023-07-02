@@ -34,8 +34,9 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Title</th>
-                                            <th>DateStart</th>
-                                            <th>DateEnd</th>
+                                            <th>Année universitaire</th>
+                                            <th>Date Start</th>
+                                            <th>Date End</th>
                                             <th>Description</th>
                                             <th>actions</th>
                                         </tr>
@@ -45,18 +46,20 @@
                                             <tr {{ open_pre_inscription.current ? 'class="bg-light"' : 'class="bg-warning"' }}>
                                                 <td>{{ open_pre_inscription.id }}</td>
                                                 <td>{{ open_pre_inscription.title }}</td>
+                                                <td>{{ open_pre_inscription.academicYear }}</td>
                                                 <td>{{ open_pre_inscription.dateStart ? open_pre_inscription.dateStart|date('Y-m-d') : '' }}</td>
                                                 <td>{{ open_pre_inscription.dateEnd ? open_pre_inscription.dateEnd|date('Y-m-d') : '' }}</td>
                                                 <td>{{ open_pre_inscription.description }}</td>
                                                 <td>
                                                     <table>
                                                         <tr>
-                                                            <td> <a class="btn btn-sm btn-primary" href="{{ path('app_iitg_admin_open_pre_inscription_show', {'id': open_pre_inscription.id}) }}"><i class="la la-eye"></i></a>
+                                                            <td> <a class="btn btn-sm btn-primary" href="{{ path('app_iitg_admin_pre_inscription_by_open_inscription', {'id': open_pre_inscription.id}) }}"><i class="la la-eye"></i></a>
                                                             </td>
                                                             <td><a class="btn btn-sm btn-danger" href="{{ path('app_iitg_admin_open_pre_inscription_edit', {'id': open_pre_inscription.id}) }}"><i class="la la-pencil"></i></a>
                                                             </td>
                                                             <td> <a class="btn btn-sm btn-danger" href="{{ path('app_iitg_admin_open_pre_inscription_delete', {'id': open_pre_inscription.id}) }}" onclick="return confirm('Are you sure to delete?')"><i class="la la-trash-o"></i></a>
                                                             </td>
+                                                            
                                                         </tr>
                                                     </table>
                                                 </td>

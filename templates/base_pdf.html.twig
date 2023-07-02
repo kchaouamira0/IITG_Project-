@@ -105,7 +105,7 @@
                 position: fixed; /* Position fixe pour le pied de page */
                 bottom: 0; /* Alignement en bas de la page */
                 right: 0; /* Alignement à droite */
-                width: 500px; /* Largeur du pied de page */
+                width: 300px; /* Largeur du pied de page */
                 padding: 10px; /* Espacement interne pour le contenu du pied de page */
                 text-align: right; /* Alignement du texte à droite */
             }
@@ -124,7 +124,7 @@
         </div>
         <div class="title">
             <h2>ATTESTATION DE PRE D’INSCRIPTION</h2>
-            <p>2022-2023</p>
+            <p>{{ annee_univ }}</p>
         </div>
         <div class="section">
             <div class="texte">
@@ -132,14 +132,19 @@
                 <center> <p class="title2"><strong>{{ preInscription.firstName|capitalize ~' '~ preInscription.lastName|upper }}</strong></p></center>
                 <center> <p  class="title2" >Né le {{ preInscription.birthdate|date("m/d/Y") }}</p></center>
                 <center> <p  class="title2">De nationalité Gabonaise</p></center><br/>
-                <p>Est inscrit(e) en <u>PREMIERE ANNEE</u> <strong>{{ preInscription.speciality.name|upper }}</strong>, pour le compte de l’année 2023-2024.</p>
+                <p>Est inscrit(e) en <u>PREMIERE ANNEE</u> <strong>{{ preInscription.speciality.name|upper }}</strong>, pour le compte de l’année {{ annee_univ }}.</p>
                 <p class="info">La présente attestation est délivrée à l’interessée, pour servir et valoir ce que de droit.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p> Fait à Libreville, le {{ "now"|date("d F Y") }}</p>
-            <p>Le directeur {{ direction.firstName|capitalize }} {{ direction.lastName|upper }}</p>
+            <div style="text-align: center">
+                <p> Fait à Libreville, le {{ "now"|date("d F Y") }}</p>
+                <p>Le directeur {{ direction.firstName|capitalize }} {{ direction.lastName|upper }}</p>
+                <img src="{{ absolute_url(asset(direction.sign)) }}"/>
+            </div>
+
         </div>
+
     </body>
 </html>

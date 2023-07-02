@@ -2,7 +2,19 @@
 {% block title %}| Pré-inscription{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        select {
+            width: 100%;
+            border: 1px solid #e5e4e4;
+            line-height: 43px;
+            height: 43px;
+            margin-bottom: 20px;
+            text-indent: 10px;
+        }
+        
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 
 {% endblock %}
 
@@ -45,10 +57,66 @@
                 <div class="col-md-10">
                     <div class="send_email">
                         <div class="section-padding">
-                            <h2>Pré-inscription 2023-2024</h2>
                             <div class="email_form">
-                                {{ form(form) }}
+                                <h2>{{ openPreInscription.title }}</h2>
+                                <h4 style="text-align: center;">{{ openPreInscription.description }}</h4>
+                
 
+                                {% for message in app.flashes('success') %}
+                                    <div class="alert alert-success">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                                <div class="section-padding">
+                                    <div class="email_form">
+                                        {{ form_start(form) }}
+                                        <div class="col-md-6 fix_p_r">
+                                            <label>First Name <span>*</span></label>
+                                            {{ form_widget(form.firstName) }}
+                                        </div>
+                                        <div class="col-md-6 fix_p_r">
+                                            <label>Last Name <span>*</span></label>
+                                            {{ form_widget(form.lastName) }}
+                                        </div>
+                                        <div class="col-md-6 fix_p_r">
+                                            <label>Birthdate <span>*</span></label>
+                                            {{ form_widget(form.birthdate) }}
+                                        </div>
+                                        <div class="col-md-6 fix_p_r">
+                                            <label>Place of birth <span>*</span></label>
+                                            {{ form_widget(form.placeOfBirth) }}
+                                        </div>
+                                        <div class="col-md-6 fix_p_r">
+                                            <label>Email <span>*</span></label>
+                                            {{ form_widget(form.email) }}
+                                        </div>
+                                        <div class="col-md-6 fix_p_r">
+                                            <label>Phone <span>*</span></label>
+                                            {{ form_widget(form.phone) }}
+                                        </div>
+                                        <div class="col-md-12 fix_p_r">
+                                            <label>Etab <span>*</span></label>
+                                            {{ form_widget(form.etab) }}
+                                        </div>
+                                        <div class="col-md-12 fix_p_r">
+                                            <label>Adress <span>*</span></label>
+                                            {{ form_widget(form.adress) }}
+                                        </div>
+                                        <div class="col-md-12 fix_p_r" style="margin-bottom: 20px; ">
+                                            <label>Bac <span>*</span></label>
+                                            {{ form_widget(form.bac) }}
+                                        </div>
+                                        <div class="col-md-12 fix_p_r" style="margin-bottom: 20px">
+                                            <label>Sector <span>*</span></label>
+                                            {{ form_widget(form.speciality,{'attr':{ 'height': '600px'}}) }}
+                                        </div>
+                                        <div class="col-md-12 fix_p_r">
+                                            <input type="submit" value="Send Message">
+                                        </div>                                         
+
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
@@ -63,20 +131,18 @@
 {% block scripts %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
         $(document).ready(function () {
             // you may need to change this code if you are not using Bootstrap Datepicker
-            $('.js-datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-            });
-            
+            $('.js-datepicker').datepicker();
+
             //select2
-                $('.speciality-tags').select2();
+            $('.speciality-tags').select2();
 
         });
     </script>
-    
-    
+
+
 {% endblock %}

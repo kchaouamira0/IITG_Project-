@@ -14,6 +14,8 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use App\Entity\Direction;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\OpenPreInscription;
+
 /**
  * @Route("/iitg-admin/pre-inscription")
  */
@@ -25,6 +27,19 @@ class PreInscriptionController extends AbstractController {
     public function index(PreInscriptionRepository $preInscriptionRepository): Response {
         return $this->render('iitg_admin/pre_inscription/index.html.twig', [
                     'pre_inscriptions' => $preInscriptionRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/open-inscription/{id}", name="app_iitg_admin_pre_inscription_by_open_inscription", methods={"GET"})
+     */
+    public function openInscription(PreInscriptionRepository $preInscriptionRepository, OpenPreInscription $openPreInscription): Response {
+        if (!$openPreInscription) {
+            return $this->createNotFoundException("openPreInscription existe pas");
+        }
+
+        return $this->render('iitg_admin/pre_inscription/index.html.twig', [
+                    'pre_inscriptions' => $preInscriptionRepository->findBy(['openPreInscription' => $openPreInscription]),
         ]);
     }
 
@@ -93,7 +108,7 @@ class PreInscriptionController extends AbstractController {
     public function accept(Request $request, PreInscription $preInscription, PreInscriptionRepository $preInscriptionRepository): Response {
         $preInscription->setIsAccepted(true);
         $preInscriptionRepository->add($preInscription, true);
-        return $this->redirectToRoute('app_iitg_admin_pre_inscription_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_iitg_admin_open_pre_inscription_index', [], Response::HTTP_SEE_OTHER);
     }
 
     /**
@@ -141,9 +156,16 @@ class PreInscriptionController extends AbstractController {
     /**
      * @Route("/pdf/attestation-methode-1/{id}", name="app_iitg_admin_pre_inscription_exemple_attestation_methode_1", methods={"GET"})
      */
-    public function attestationMethode1(PreInscription $preInscription,EntityManagerInterface $entityManager): Response {
+    public function attestationMethode1(PreInscription $preInscription, EntityManagerInterface $entityManager): Response {
 
         $direction = Direction::getInstance($entityManager);
+        $openPreInscription = OpenPreInscription::getInstanceOfOpenPreInscriptionCurrent($entityManager);
+        if (!$openPreInscription) {
+            return $this->createNotFoundException("openPreInscription null");
+        }
+
+        $preInscriptions = $openPreInscription->getPreInscriptions();
+        $annee_univ = $openPreInscription->getAcademicYear();
 
         // Configure Dompdf according to your needs
         $pdfOptions = new Options();
@@ -155,8 +177,12 @@ class PreInscriptionController extends AbstractController {
         $dompdf = new Dompdf($pdfOptions);
 
         // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('iitg_admin/pre_inscription/pdf.html.twig', ['preInscription' => $preInscription,'direction'=>$direction
-        ]);
+        $html = $this->renderView('iitg_admin/pre_inscription/pdf.html.twig',
+                [
+                    'preInscription' => $preInscription,
+                    'direction' => $direction,
+                    'annee_univ' => $annee_univ
+                ]);
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
@@ -180,44 +206,59 @@ class PreInscriptionController extends AbstractController {
     /**
      * @Route("/pdf/all-attestations", name="app_iitg_admin_pre_inscription_all_attestations", methods={"GET"})
      */
-    public function allAttestation(PreInscriptionRepository $preInscriptionRepository,EntityManagerInterface $entityManager): Response {
+    public function allAttestation(PreInscriptionRepository $preInscriptionRepository, EntityManagerInterface $entityManager): Response {
 
         $direction = Direction::getInstance($entityManager);
-        $preInscriptions = $preInscriptionRepository->findAll();
-        $html = "";
-        
-        foreach ($preInscriptions as $preInscription) {
-            // Configure Dompdf according to your needs
-            $pdfOptions = new Options();
-            $pdfOptions->setIsRemoteEnabled(true);
-
-            $pdfOptions->set('defaultFont', 'Arial');
-
-            // Instantiate Dompdf with our options
-            $dompdf = new Dompdf($pdfOptions);
-
-            // Retrieve the HTML generated in our twig file
-            $html =$html. $this->renderView('iitg_admin/pre_inscription/pdf.html.twig', ['preInscription' => $preInscription,'direction'=>$direction
-            ]);
+        $openPreInscription = OpenPreInscription::getInstanceOfOpenPreInscriptionCurrent($entityManager);
+        if (!$openPreInscription) {
+            return $this->createNotFoundException("openPreInscription null");
         }
 
-        // Load HTML to Dompdf
-        $dompdf->loadHtml($html);
+        $preInscriptions = $openPreInscription->getPreInscriptions();
+        $annee_univ = $openPreInscription->getAcademicYear();
+        $html = "";
+        $dompdf = null;
+        foreach ($preInscriptions as $preInscription) {
+            // Configure Dompdf according to your needs
+            if ($preInscription->isIsAccepted()) {
+                $pdfOptions = new Options();
+                $pdfOptions->setIsRemoteEnabled(true);
 
-        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
-        $dompdf->setPaper('A4', 'portrait');
+                $pdfOptions->set('defaultFont', 'Arial');
 
-        // Render the HTML as PDF
-        $dompdf->render();
+                // Instantiate Dompdf with our options
+                $dompdf = new Dompdf($pdfOptions);
 
-        // Output the generated PDF to Browser (force download)
-        $dompdf->stream("mypdf.pdf", [
-            "Attachment" => false
-        ]);
+                // Retrieve the HTML generated in our twig file
+                $html = $html . $this->renderView('iitg_admin/pre_inscription/pdf.html.twig', [
+                            'preInscription' => $preInscription,
+                            'direction' => $direction,
+                            'annee_univ' => $annee_univ
+                ]);
+            }
+        }
 
-        return new Response('', 200, [
-            'Content-Type' => 'application/pdf',
-        ]);
+        if ($dompdf) {
+            // Load HTML to Dompdf
+            $dompdf->loadHtml($html);
+
+            // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+            $dompdf->setPaper('A4', 'portrait');
+
+            // Render the HTML as PDF
+            $dompdf->render();
+
+            // Output the generated PDF to Browser (force download)
+            $dompdf->stream("mypdf.pdf", [
+                "Attachment" => false
+            ]);
+
+            return new Response('', 200, [
+                'Content-Type' => 'application/pdf',
+            ]);
+        } else {
+            return $this->redirectToRoute('app_iitg_admin_pre_inscription_index', [], Response::HTTP_SEE_OTHER);
+        }
     }
 
 }

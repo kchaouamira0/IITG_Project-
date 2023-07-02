@@ -26,7 +26,7 @@
                             <h4 class="card-title">{{ pre_inscription.speciality.filiereByParcours }}</h4>
                             {% if pre_inscription.isAccepted  %}
                                 <div class="alert alert-success solid">Accepted</div>
-                                 <a href="{{ path('app_iitg_admin_pre_inscription_exemple_attestation_methode_1',{'id':pre_inscription.id}) }}" class="btn btn-primary">Attestation Mèthode 1</a>
+                                 <a href="{{ path('app_iitg_admin_pre_inscription_exemple_attestation_methode_1',{'id':pre_inscription.id}) }}" class="btn btn-primary">Attestation</a>
 
                             {% else %}
                                 <a href="{{ path('app_iitg_admin_pre_inscription_accept',{'id':pre_inscription.id}) }}" class="btn btn-primary">Accept</a>

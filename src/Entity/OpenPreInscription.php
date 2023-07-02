@@ -41,7 +41,7 @@ class OpenPreInscription {
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=PreInscription::class, mappedBy="openPreInscription")
+     * @ORM\OneToMany(targetEntity=PreInscription::class, mappedBy="openPreInscription",cascade={"remove"})
      */
     private $preInscriptions;
 
